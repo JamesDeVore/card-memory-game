@@ -33,7 +33,7 @@ export default function GameControl(props) {
             Match Attempts: {props.attempts}
           </h3>
         </div>
-        <div className="card-design">
+        <div className="card-design ml-8">
           <h3 className="text-white">Choose card back:</h3>
           <ThumbGrid className="grid">
             {props.images.map(design => (

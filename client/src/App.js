@@ -5,7 +5,8 @@ import "./App.css";
 //components
 import GameControl from "./components/GameControl";
 import GameBoard from "./components/GameBoard";
-import images from './assets/cardBacks'
+import images from "./assets/cardBacks";
+import WinModal from "./components/WinModal";
 
 class App extends Component {
   constructor(props) {
@@ -26,15 +27,21 @@ class App extends Component {
     try {
       let deckObject = await fetch("api/cards/new").then(res => res.json());
       let { deck_id, cards } = deckObject;
-      this.setState({ deck_id, cards, matches: [], selectedCards: [], attempts:0 });
+      this.setState({
+        deck_id,
+        cards,
+        matches: [],
+        selectedCards: [],
+        attempts: 0
+      });
     } catch (e) {
       console.log(e);
     }
   };
 
-  selectCardImage = (url) => {
-    this.setState({cardBack:url})
-  }
+  selectCardImage = url => {
+    this.setState({ cardBack: url });
+  };
 
   selectCard = id => {
     let { matches, selectedCards } = this.state;
@@ -52,8 +59,8 @@ class App extends Component {
       //first, only check if there are two cards selected
       if (this.state.selectedCards.length === 2) {
         //increase match attemps
-        let {attempts} = this.state
-        this.setState({ attempts: attempts+=1 });
+        let { attempts } = this.state;
+        this.setState({ attempts: (attempts += 1) });
         //now check if the two cards are a match
         if (this.handleMatches(this.state.selectedCards)) {
           this.setState({
@@ -64,8 +71,8 @@ class App extends Component {
           //not a match, remove the cards after a  bit
           setTimeout(() => this.setState({ selectedCards: [] }), 1000);
         }
-      } else if(this.state.selectedCards.length > 2){
-        this.setState({selectedCards:[]})
+      } else if (this.state.selectedCards.length > 2) {
+        this.setState({ selectedCards: [] });
       }
     });
   };
@@ -86,6 +93,11 @@ class App extends Component {
   render() {
     return (
       <Game className="">
+        {this.state.matches.length === 52 ? (
+          <WinModal attempts={this.state.attempts} />
+        ) : (
+          <div />
+        )}
         <GameControl
           getNew={this.getNewDeck}
           matches={this.state.matches}
