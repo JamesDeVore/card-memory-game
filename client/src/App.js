@@ -94,7 +94,7 @@ class App extends Component {
 
   render() {
     return (
-      <Game className="">
+      <Game>
         {this.state.matches.length === 52 ? (
           <WinModal attempts={this.state.attempts} />
         ) : (
@@ -114,6 +114,7 @@ class App extends Component {
           selectCard={this.selectCard}
           matches={this.state.matches}
           cardImage={this.state.cardBack}
+          key={this.state.deck_id}
         />
       </Game>
     );
@@ -126,6 +127,9 @@ const Game = styled.div`
   min-height: 100vh;
   background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
   align-items: center;
+  @media (max-width: 700px) {
+    min-width:110vw;
+  }
 `;
 
 export default App;

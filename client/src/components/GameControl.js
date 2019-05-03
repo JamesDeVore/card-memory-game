@@ -14,7 +14,7 @@ export default function GameControl(props) {
           Try and match all the numbers in the fewest moves possible
         </p>
         <p className="italic font-light ">
-          Only two cards can be face up at a time, matched cards remain visible
+          Only two cards can be face up at a time, matched cards remain visible, good luck!
         </p>
       </div>
       <div className="controls flex flex-row align-baseline">
@@ -24,7 +24,7 @@ export default function GameControl(props) {
         >
           New Game
         </button>
-        <div className="ml-6 ">
+        <div className="ml-6">
           <h3 className="font-bold align-center">
             Current Matches: {props.matches.length / 2}
           </h3>
@@ -33,13 +33,14 @@ export default function GameControl(props) {
           </h3>
         </div>
         <div className="card-design ml-8">
-          <h3 className="text-white">Choose card back:</h3>
-          <ThumbGrid className="grid">
+          <h3 className="text-white">Choose card design:</h3>
+          <ThumbGrid>
             {props.images.map(design => (
               <Thumbnail
                 src={design}
                 alt="Cardback"
                 onClick={() => props.chooseImage(design)}
+                key={design}
               />
             ))}
           </ThumbGrid>
@@ -59,7 +60,7 @@ const InfoPanel = styled.div`
 const ThumbGrid = styled.div`
   display: flex;
   flex-direction: row;
-  margin-left: 10px;
+  margin-left: 0px;
 `;
 
 const Thumbnail = styled.img`
