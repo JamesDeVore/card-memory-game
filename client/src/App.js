@@ -5,7 +5,6 @@ import "./App.css";
 //components
 import GameControl from "./components/GameControl";
 import GameBoard from "./components/GameBoard";
-import CardBackground from "./assets/tablebackground.jpg";
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class App extends Component {
     try {
       let deckObject = await fetch("api/cards/new").then(res => res.json());
       let { deck_id, cards } = deckObject;
-      this.setState({ deck_id, cards, matches: [], selectedCards: [] });
+      this.setState({ deck_id, cards, matches: [], selectedCards: [], attempts:0 });
     } catch (e) {
       console.log(e);
     }
@@ -45,7 +44,8 @@ class App extends Component {
       //first, only check if there are two cards selected
       if (this.state.selectedCards.length === 2) {
         //increase match attemps
-        this.setState({ attempts: this.state.attempts+=1 });
+        let {attempts} = this.state
+        this.setState({ attempts: attempts+=1 });
 
         if (this.handleMatches(this.state.selectedCards)) {
           this.setState({
