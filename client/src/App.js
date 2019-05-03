@@ -21,7 +21,7 @@ class App extends Component {
   getNewDeck = async () => {
     //first thing to do: get a new SHUFFLED deck from the api, can do that in one call, and draw all cards
     try {
-      let deckObject = await fetch("/api/cards/new").then(res => res.json());
+      let deckObject = await fetch("api/cards/new").then(res => res.json());
       let { deck_id, cards } = deckObject;
       this.setState({ deck_id, cards, matches: [], selectedCards: [] });
     } catch (e) {

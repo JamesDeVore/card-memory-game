@@ -15,7 +15,14 @@ app.use(
   })
 );
 
-//for deployment
+
+//routes
+
+app.use('/api/cards', cards)
+
+app.use(bodyParser.json())
+
+
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -31,12 +38,6 @@ if(process.env.NODE_ENV === 'production') {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/public/index.html'));
 })
-
-//routes
-
-app.use('/api/cards', cards)
-
-app.use(bodyParser.json())
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on ${port}!`));
