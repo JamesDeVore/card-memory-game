@@ -43,6 +43,8 @@ hr{
   border:2px solid white;
 }
 
-.card-design {
-  margin-left:20px;
+
+.is-flipped {
+ -webkit-transition: transform 1.5s; /* Safari and Chrome */
+ transition: transform 1.5s;
 }

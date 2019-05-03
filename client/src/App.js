@@ -54,7 +54,7 @@ class App extends Component {
         //increase match attemps
         let {attempts} = this.state
         this.setState({ attempts: attempts+=1 });
-
+        //now check if the two cards are a match
         if (this.handleMatches(this.state.selectedCards)) {
           this.setState({
             matches: matches.concat(this.state.selectedCards),
@@ -64,6 +64,8 @@ class App extends Component {
           //not a match, remove the cards after a  bit
           setTimeout(() => this.setState({ selectedCards: [] }), 1000);
         }
+      } else if(this.state.selectedCards.length > 2){
+        this.setState({selectedCards:[]})
       }
     });
   };

@@ -16,7 +16,7 @@ let matched = false;
   if(selectedCard){
     //if the code matches one of the selected cards
      imageUrl = image
-     addedClasses+= " card-face card-face--front"
+     addedClasses+= ""
   } else if(matchedCard){
     //previously matched
     matched = true; //can be refactored later
@@ -27,7 +27,7 @@ let matched = false;
     //not selected or matched, just put this as the final card back
     //TODO allow a user to have custom card backs, would remove this long URL
      imageUrl = props.cardDesign;
-     addedClasses +=" flipped-card card-face card-face--back"
+     addedClasses +=" "
   }
 
   //handling a wiggle animation for incorrectly selected cards
@@ -37,7 +37,7 @@ let matched = false;
 
   return (
     <CardWrapper className={`card-wrapper ${addedClasses}`}  onClick={() => props.selectCard(code)}>
-    <CardBody className="card">
+    <CardBody >
       <div className={matched ? "matched" : ""} />
       <CardImage src={imageUrl} alt="" className="card-img" />
     </CardBody>
@@ -46,11 +46,11 @@ let matched = false;
 }
 
 const CardBody = styled.div`
-width: 100%;
+  width: 100%;
   height: 100%;
   position: relative;
-  transition: transform 1s;
-  transform-style: preserve-3d;
+  
+
 `
 
 const CardWrapper = styled.div`
