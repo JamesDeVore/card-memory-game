@@ -32,7 +32,7 @@ let matched = false;
 
   //handling a wiggle animation for incorrectly selected cards
   if(selectedCard && !matchedCard && selected.length === 2){
-    addedClasses =" incorrect"
+    addedClasses += " incorrect"
   }
 
   return (

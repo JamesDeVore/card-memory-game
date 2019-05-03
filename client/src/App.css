@@ -28,7 +28,7 @@
 .incorrect {
   animation:wiggle .4s ease;
   animation-iteration-count: 1;
-  animation-delay: 200ms;
+  animation-delay: 1000ms;
 }
 
 @keyframes wiggle {
@@ -44,7 +44,7 @@ hr{
 }
 .deal {
 	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @-webkit-keyframes scale-in-center {
@@ -73,8 +73,8 @@ hr{
 }
 
 .flip {
-	-webkit-animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-	        animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	-webkit-animation: flip-vertical-left 0.3s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: flip-vertical-left 0.3s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
  
