@@ -14,6 +14,7 @@ export default function GameBoard(props) {
           selected={props.selected} 
           selectCard={props.selectCard} 
           matches={props.matches}
+          cardDesign={props.cardImage}
           />
         </CardItem>
       ))}
@@ -33,6 +34,10 @@ const CardItem = styled.div`
   margin: 3px;
   & hover {
     border: 4px solid yellow;
+  }
+  @media (max-width: 700px) {
+    width:20%;
+    margin:4px;
   }
 `;
 

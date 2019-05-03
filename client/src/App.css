@@ -38,3 +38,11 @@
   80%  { transform: translateX(-1px); }
   100% { transform: translateX(0);    }
 }
+
+hr{
+  border:2px solid white;
+}
+
+.card-design {
+  margin-left:20px;
+}

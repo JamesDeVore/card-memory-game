@@ -5,6 +5,7 @@ import "./App.css";
 //components
 import GameControl from "./components/GameControl";
 import GameBoard from "./components/GameBoard";
+import images from './assets/cardBacks'
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,10 @@ class App extends Component {
       matches: [],
       selectedCards: [],
       cards: [],
-      attempts: 0
+      attempts: 0,
+      cardBack:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvTGM3hq2R-PhBlaRuSTIDvWXqKdNl2F0CWDqWKnwykRKx7p8", //default image to start
+      images
     };
   }
   getNewDeck = async () => {
@@ -27,6 +31,10 @@ class App extends Component {
       console.log(e);
     }
   };
+
+  selectCardImage = (url) => {
+    this.setState({cardBack:url})
+  }
 
   selectCard = id => {
     let { matches, selectedCards } = this.state;
@@ -81,13 +89,15 @@ class App extends Component {
           matches={this.state.matches}
           reset={this.resetGame}
           attempts={this.state.attempts}
+          images={this.state.images}
+          chooseImage={this.selectCardImage}
         />
         <GameBoard
           cards={this.state.cards}
           selected={this.state.selectedCards}
           selectCard={this.selectCard}
           matches={this.state.matches}
-          className=""
+          cardImage={this.state.cardBack}
         />
       </Game>
     );

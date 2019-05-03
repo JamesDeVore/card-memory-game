@@ -26,7 +26,7 @@ let matched = false;
   else {
     //not selected or matched, just put this as the final card back
     //TODO allow a user to have custom card backs, would remove this long URL
-     imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvTGM3hq2R-PhBlaRuSTIDvWXqKdNl2F0CWDqWKnwykRKx7p8";
+     imageUrl = props.cardDesign;
      addedClasses +=" flipped-card card-face card-face--back"
   }
 
