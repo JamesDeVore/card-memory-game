@@ -16,7 +16,7 @@ let matched = false;
   if(selectedCard){
     //if the code matches one of the selected cards
      imageUrl = image
-     addedClasses+= ""
+     addedClasses+= " flip"
   } else if(matchedCard){
     //previously matched
     matched = true; //can be refactored later
@@ -32,7 +32,7 @@ let matched = false;
 
   //handling a wiggle animation for incorrectly selected cards
   if(selectedCard && !matchedCard && selected.length === 2){
-    addedClasses +=" incorrect"
+    addedClasses =" incorrect"
   }
 
   return (
