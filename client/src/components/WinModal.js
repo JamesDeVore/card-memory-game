@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-import ReactDOM from "react-dom";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -53,7 +52,7 @@ export default class WinModal extends Component {
           <h3>You Won!</h3>
           <hr />
           <h4 className="leading-loose">
-            It took you {this.props.attempts} attempts
+            It took you {this.props.attempts} attempts.
           </h4>
           <button
             onClick={this.closeModal}

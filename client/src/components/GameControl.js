@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 
 //This will be the main component, will track the state of the game, handle new games, etc.
 //State will include deck id, number of matches, if a card if flipped
 export default function GameControl(props) {
-  console.log(props);
   return (
     <InfoPanel className="mb-6 justify-center">
       <div className="info m-2">
@@ -37,10 +36,10 @@ export default function GameControl(props) {
           <h3 className="text-white">Choose card back:</h3>
           <ThumbGrid className="grid">
             {props.images.map(design => (
-              <Thumbnail 
-              src={design} 
-              alt="Cardback"
-              onClick={() => props.chooseImage(design)}
+              <Thumbnail
+                src={design}
+                alt="Cardback"
+                onClick={() => props.chooseImage(design)}
               />
             ))}
           </ThumbGrid>
@@ -67,8 +66,8 @@ const Thumbnail = styled.img`
   width: 40px;
   height: 60px;
   margin: 2px;
-  &:hover{
-    border:2px solid red;
-    border-radius:3px;
+  &:hover {
+    border: 2px solid red;
+    border-radius: 3px;
   }
 `;

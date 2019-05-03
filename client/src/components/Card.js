@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 export default function Card(props) {
   //first I need to see if the card has been selected / matched otherwise show the default back
 let matched = false;
@@ -25,7 +24,6 @@ let matched = false;
   } 
   else {
     //not selected or matched, just put this as the final card back
-    //TODO allow a user to have custom card backs, would remove this long URL
      imageUrl = props.cardDesign;
      addedClasses +=" flipped-card"
   }

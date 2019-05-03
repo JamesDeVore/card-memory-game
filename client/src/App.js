@@ -6,6 +6,7 @@ import "./App.css";
 import GameControl from "./components/GameControl";
 import GameBoard from "./components/GameBoard";
 import images from "./assets/cardBacks";
+import default_card from './assets/default_card.jpg'
 import WinModal from "./components/WinModal";
 
 class App extends Component {
@@ -17,8 +18,7 @@ class App extends Component {
       selectedCards: [],
       cards: [],
       attempts: 0,
-      cardBack:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvTGM3hq2R-PhBlaRuSTIDvWXqKdNl2F0CWDqWKnwykRKx7p8", //default image to start
+      cardBack:default_card, //default image to start
       images
     };
   }
@@ -46,6 +46,7 @@ class App extends Component {
   selectCard = id => {
     let { matches, selectedCards } = this.state;
     //Could make the matches a hash table, so it'll be faster. for right now I'll leave it as an array
+    
     //First, if they select a  previously matched / selected card, ignore the click
     if (
       matches.find(cardID => cardID === id) ||
@@ -72,6 +73,7 @@ class App extends Component {
           setTimeout(() => this.setState({ selectedCards: [] }), 1000);
         }
       } else if (this.state.selectedCards.length > 2) {
+        //prevent more than 2 cards being visible while waiting for the cards to be flipped automatically
         this.setState({ selectedCards: [] });
       }
     });
@@ -79,7 +81,7 @@ class App extends Component {
   handleMatches = cardArray => {
     //first make sure it has two elements
     if (cardArray.length < 2) {
-      return cardArray;
+      return false;
     }
     //I know the codes are all  #S (number Suit, and I only need the number)
     let [card1, card2] = cardArray;
