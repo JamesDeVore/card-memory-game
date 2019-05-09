@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
 
 export default function Card(props) {
   //first I need to see if the card has been selected / matched otherwise show the default back
@@ -15,7 +14,7 @@ export default function Card(props) {
   let imageUrl = "";
   let addedClasses = " "; //classes to add for animations and whatnot
 
-
+  const [removed, removeUrl] = useState(0);
 
   //now to control if it is selected, matched, or incorrect
   let selectedCard = selected.find(codes => codes === code);
@@ -26,10 +25,14 @@ export default function Card(props) {
     imageUrl = image;
     addedClasses += " flip";
   } else if (matchedCard) {
-    
-    imageUrl = setTimeout(() => {
-      return imageUrl = ""
-    }, 2500) 
+    setTimeout(() => {
+      removeUrl(removed + 1);
+    }, 1000);
+    if (removed > 0) {
+      imageUrl = "";
+    } else {
+      imageUrl = image;
+    }
   } else {
     //not selected or matched, just put this as the final card back
     imageUrl = props.cardDesign;
@@ -60,12 +63,12 @@ const CardBody = styled.div`
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-`
+`;
 
 const CardWrapper = styled.div`
   position: relative;
   perspective: 1000px;
-`
+`;
 
 const CardImage = styled.img`
   max-width: 100%;
@@ -74,4 +77,4 @@ const CardImage = styled.img`
   & hover {
     border: 4px solid yellow;
   }
-`
+`;
