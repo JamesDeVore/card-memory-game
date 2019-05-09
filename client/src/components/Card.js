@@ -27,7 +27,9 @@ export default function Card(props) {
     addedClasses += " flip";
   } else if (matchedCard) {
     
-   imageUrl = ""
+    imageUrl = setTimeout(() => {
+      return imageUrl = ""
+    }, 2500) 
   } else {
     //not selected or matched, just put this as the final card back
     imageUrl = props.cardDesign;
