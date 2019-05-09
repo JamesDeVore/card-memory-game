@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+
 
 export default function Card(props) {
   //first I need to see if the card has been selected / matched otherwise show the default back
@@ -14,6 +15,8 @@ export default function Card(props) {
   let imageUrl = "";
   let addedClasses = " "; //classes to add for animations and whatnot
 
+
+
   //now to control if it is selected, matched, or incorrect
   let selectedCard = selected.find(codes => codes === code);
   let matchedCard = matches.find(codes => codes === code);
@@ -23,9 +26,8 @@ export default function Card(props) {
     imageUrl = image;
     addedClasses += " flip";
   } else if (matchedCard) {
-    //previously matched
-    matched = true; //can be refactored later
-    imageUrl = image;
+    
+   imageUrl = ""
   } else {
     //not selected or matched, just put this as the final card back
     imageUrl = props.cardDesign;
